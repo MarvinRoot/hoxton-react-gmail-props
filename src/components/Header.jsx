@@ -1,6 +1,6 @@
 import '../components/css/header.css'
 
-function Header() {
+function Header(props) {
 
     return (
     <header className="header">
@@ -16,7 +16,7 @@ function Header() {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail" />
+          <input className="search-bar" placeholder="Search mail"/>
         </div>
     </header>
     )

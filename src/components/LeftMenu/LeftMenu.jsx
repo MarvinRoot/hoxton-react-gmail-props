@@ -1,4 +1,6 @@
 import Inbox from './Inbox'
+import Starred from './Starred'
+import HideRead from './HideRead'
 
 function LeftMenu(props){
 
