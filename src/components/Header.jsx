@@ -16,7 +16,8 @@ function Header(props) {
         </div>
 
         <div className="search">
-          <input className="search-bar" placeholder="Search mail"/>
+          <input className="search-bar" placeholder="Search mail"
+          onChange={e => props.setSearchInput(e.target.value)}/>
         </div>
     </header>
     )

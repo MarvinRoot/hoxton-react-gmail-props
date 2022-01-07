@@ -11,13 +11,15 @@ const getReadEmails = emails => emails.filter(email => !email.read)
 
 const getStarredEmails = emails => emails.filter(email => email.starred)
 
+const getSearchedEmails = (emails, search) => emails.filter(email => email.title.toUpperCase().includes(search.toUpperCase())
+|| email.sender.toUpperCase().includes(search.toUpperCase()))
+
 function App() {
   const [emails, setEmails] = useState(initialEmails)
   const [hideRead, setHideRead] = useState(false)
   const [currentTab, setCurrentTab] = useState('inbox')
   const [searchInput, setSearchInput] = useState('')
 
-  const getSearchedEmails = emails => emails.filter(email => email.title.toUpperCase() === searchInput)
   const unreadEmails = emails.filter(email => !email.read)
   const starredEmails = emails.filter(email => email.starred)
 
@@ -45,6 +47,9 @@ function App() {
 
   if (currentTab === 'starred')
     filteredEmails = getStarredEmails(filteredEmails)
+
+  if (searchInput !== '')
+    filteredEmails = getSearchedEmails(filteredEmails, searchInput)
 
   return (
     <div className="app">
